@@ -1,0 +1,162 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+
+// schema.prisma
+
+model usuario {
+  id                    Int      @id @default(autoincrement())
+  nombre                String
+  apellido              String
+  dni                   Int      @unique
+  sexo                  Sexo
+  fechaNacimiento       DateTime
+  cargo                 Cargo?
+  telefono              String?
+  revista               Revista?
+  antiguedadDocente     DateTime?
+  antiguedadInstitucion DateTime?
+  observaciones         String?
+  legajo                String?
+  gradoEscolar          GradoEscolar?
+  seccion               Seccion?
+  telefonoTutor         String?
+  fechaIngreso          DateTime?
+  pagoSeguroEscolar     Boolean?
+  fechaEgreso           DateTime?
+  email                 String   @unique
+  password              String
+  rol                   Rol
+  created_at            DateTime @default(now())
+  updated_at            DateTime @default(now())
+
+  // Relations
+  licenciasSolicitadas  licencia[] @relation("solicitante")
+  licenciasAutorizadas  licencia[] @relation("autorizante")
+  sugerencias           sugerencia[]
+}
+
+model sugerencia {
+  id        Int      @id @default(autoincrement())
+  tipo      Tipo
+  texo      String?
+  anonima   Boolean  @default(true)
+  usuarioId Int?
+  usuario   usuario? @relation(fields: [usuarioId], references: [id])
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+}
+
+model evento {
+  id         Int      @id @default(autoincrement())
+  tipo       String?
+  titulo     String?
+  imagen     String?
+  incidencia Boolean @default(false)
+  archivo    String?
+  fecha      DateTime?
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+}
+
+model horario {
+  id                 Int      @id @default(autoincrement())
+  seccion            Seccion
+  modulo1            String?
+  modulo2            String?
+  modulo3            String?
+  modulo4            String?
+  modulo5            String?
+  modulo6            String?
+  jornadaSimpleExtendida String?
+  lunes              String?
+  martes             String?
+  miercoles          String?
+  jueves             String?
+  viernes            String?
+  created_at         DateTime @default(now())
+  updated_at         DateTime @default(now())
+}
+
+model licencia {
+  id            Int      @id @default(autoincrement())
+  solicitanteId Int
+  autorizanteId Int?
+  fechaSolicitud DateTime? @default(now())
+  dias          Int?
+  expira        DateTime?
+  articulo       String
+  created_at    DateTime @default(now())
+  updated_at    DateTime @default(now())
+
+  // Relations
+  solicitante   usuario  @relation("solicitante", fields: [solicitanteId], references: [id])
+  autorizante   usuario? @relation("autorizante", fields: [autorizanteId], references: [id])
+}
+
+model menu {
+  id          Int      @id @default(autoincrement())
+  menu        String?
+  ingredientes String?
+  fecha       DateTime
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now())
+}
+
+enum Sexo {
+  M
+  F
+}
+
+enum Cargo {
+  MAESTRO_DE_GRADO
+  MAESTRO_A_CARGO_DE_DIRECCION
+  MAESTRO_ESPECIAL
+}
+
+enum Revista {
+  TITULAR
+  SUPLENTE
+  INTERINO
+}
+
+enum Rol {
+  ADMIN
+  ALUMNO
+  PROFESOR
+  PERSONAL
+}
+
+enum GradoEscolar {
+  JARDIN
+  PRIMER_GRADO
+  SEGUNDO_GRADO
+  TERCER_GRADO
+  CUARTO_GRADO
+  QUINTO_GRADO
+  SEXTO_GRADO
+  SEPTIMO_GRADO
+}
+
+enum Seccion {
+  SECCION_A
+  SECCION_B
+}
+
+enum Tipo {
+  REPORTAR_UN_PROBLEMA_DEL_SECTOR
+  REPORTAR_UN_PROBLEMA_DE_LA_ESCUELA
+  REPORTAR_UN_PROBLEMA_GENERAL
+  REPORTAR_UN_PROBLEMA_PERSONAL
+  RECONOCIMIENTO_Y_FELICITACIONES
+  OTRO
+}

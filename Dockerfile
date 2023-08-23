@@ -18,5 +18,5 @@ EXPOSE 3000
 
 # Command to run your app
 #CMD [ "sh", "-c", "npx nodemon -L index.js" ]
-CMD npx prisma migrate dev --name initial && npx prisma db seed && npx prisma studio & npx nodemon -L index.js
+CMD npx prisma migrate dev --name initial && npx prisma studio & npx nodemon -L index.js
 

@@ -38,8 +38,24 @@ router.post('/', async (req, res) => {
         return res.json({ok , usuario});
     } catch (error) {
         return res.json({ok , message: error.message});
+    }    
+})
+
+router.put('/:id', async (req, res) => {
+    if (!req.params?.id) {
+        return res.json({ok: false , message: "Debe ingresar un id"});
     }
-    
+    const id = +req.params?.id;
+    let ok = false;
+    try {
+        const usuario = await usuariosService.update(id, req.body);
+        if (usuario) {
+            ok = true;
+        }
+        return res.json({ok , usuario});
+    } catch (error) {
+        return res.json({ok , message: error.message});
+    }    
 })
 
 

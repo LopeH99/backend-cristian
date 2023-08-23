@@ -1,35 +1,37 @@
 import prisma from './prismaService.js';
 import bcrypt from 'bcrypt';
 
+
+const selectOptions = {
+    id:true,
+    nombre:true,
+    apellido:true,
+    dni:true,
+    sexo:true,
+    fechaNacimiento:true,
+    cargo:true,
+    telefono:true,
+    revista:true,
+    antiguedadDocente:true,
+    antiguedadInstitucion:true,
+    observaciones:true,
+    legajo:true,
+    gradoEscolar:true,
+    seccion:true,
+    telefonoTutor:true,
+    fechaIngreso:true,
+    pagoSeguroEscolar:true,
+    fechaEgreso:true,
+    email:true,
+    password: false,
+    rol:true,
+    created_at:true,
+    updated_at:true,
+};
 class UsuariosService {
 
     async getAll(query){
-        const selectOptions = {
-            id:true,
-            nombre:true,
-            apellido:true,
-            dni:true,
-            sexo:true,
-            fechaNacimiento:true,
-            cargo:true,
-            telefono:true,
-            revista:true,
-            antiguedadDocente:true,
-            antiguedadInstitucion:true,
-            observaciones:true,
-            legajo:true,
-            gradoEscolar:true,
-            seccion:true,
-            telefonoTutor:true,
-            fechaIngreso:true,
-            pagoSeguroEscolar:true,
-            fechaEgreso:true,
-            email:true,
-            password: false,
-            rol:true,
-            created_at:true,
-            updated_at:true,
-        };
+       
         let whereClause = {}; // Initialize an empty where clause
 
         if (query) {
@@ -123,12 +125,50 @@ class UsuariosService {
         });
     }
 
-    async update(data){
-        const { id } = data;
-        return await prisma.usuario.update({
-            where: { id },
-            body: { ...data }
-        });
+    async update(id, data){
+        try {
+            // Fetch the current user to validate dni uniqueness
+            const currentUser = await prisma.usuario.findUnique({
+                where: { id },
+                select: { dni: true }
+            });
+    
+            if (!currentUser) {
+                throw new Error('User not found');
+            }
+    
+            // Check if the provided dni is different from the current dni
+            if (data.dni !== currentUser.dni) {
+                // Check if another user already has the provided dni
+                const existingUserWithDni = await prisma.usuario.findFirst({
+                    where: { dni: data.dni }
+                });
+    
+                if (existingUserWithDni) {
+                    throw new Error('Otro usuario ya posee ese dni');
+                }
+            }
+
+            if (data.email !== currentUser.email) {
+                // Check if another user already has the provided dni
+                const existingUserWithEmail = await prisma.usuario.findFirst({
+                    where: { email: data.email }
+                });
+    
+                if (existingUserWithEmail) {
+                    throw new Error('Otro usuario ya posee esa dirección de email');
+                }
+            }
+    
+            return await prisma.usuario.update({
+                where: { id },
+                data,
+                select: selectOptions
+            });
+        } catch (error) {
+            console.error(error);
+            throw error; // Re-throw the error to be handled by the caller
+        }
     }
 
     async delete(id){
@@ -149,32 +189,7 @@ class UsuariosService {
         return await prisma.usuarios.findMany({
             //not eq to null
             where: { fechaEgreso: { neq: null}},
-            select: {
-                id:true,
-                nombre:true,
-                apellido:true,
-                dni:true,
-                sexo:true,
-                fechaNacimiento:true,
-                cargo:true,
-                telefono:true,
-                revista:true,
-                antiguedadDocente:true,
-                antiguedadInstitucion:true,
-                observaciones:true,
-                legajo:true,
-                gradoEscolar:true,
-                seccion:true,
-                telefonoTutor:true,
-                fechaIngreso:true,
-                pagoSeguroEscolar:true,
-                fechaEgreso:true,
-                email:true,
-                password: false,
-                rol:true,
-                created_at:true,
-                updated_at:true,
-            }
+            select: selectOptions
         });
     }
 

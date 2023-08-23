@@ -28,7 +28,12 @@ router.post('/login', async (req, res) => {
     expiresIn: '72h',
   });
 
-  res.json({ token });
+  res.json({ 
+    id: usuario.id, 
+    nombre: usuario?.nombre, 
+    apellido: usuario?.apellido, 
+    rol: usuario.rol, 
+    token });
 })
 
 export default router;

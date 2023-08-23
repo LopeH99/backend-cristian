@@ -59,4 +59,21 @@ router.put('/:id', async (req, res) => {
 })
 
 
+router.delete('/:id', async (req, res) => {
+    if (!req.params?.id) {
+        return res.json({ok: false , message: "Debe ingresar un id"});
+    }
+    const id = +req.params?.id;
+    let ok = false;
+    try {
+        const usuario = await usuariosService.delete(id);
+        if (usuario) {
+            ok = true;
+        }
+        return res.json({ok , message: "Usuario eliminado"});
+    } catch (error) {
+        return res.json({ok , message: error.message});
+    }    
+})
+
 export default router;

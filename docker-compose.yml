@@ -29,7 +29,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: tesis
     volumes:
-      - mysql_data:/var/lib/mysql
+      - ./mysql_data:/var/lib/mysql
 
 volumes:
   mysql_data: {}

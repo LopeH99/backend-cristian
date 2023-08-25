@@ -72,13 +72,9 @@ model evento {
 model horario {
   id                 Int      @id @default(autoincrement())
   seccion            Seccion
-  modulo1            String?
-  modulo2            String?
-  modulo3            String?
-  modulo4            String?
-  modulo5            String?
-  modulo6            String?
-  jornadaSimpleExtendida String?
+  gradoEscolar       GradoEscolar?
+  modulo             String?
+  rangoHorario       String?
   lunes              String?
   martes             String?
   miercoles          String?

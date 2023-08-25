@@ -1,9 +1,47 @@
 import prisma from './prismaService.js';
 
+const selectOptions = {
+    id:true,
+    nombre:true,
+    apellido:true,
+    dni:true,
+    sexo:true,
+    fechaNacimiento:true,
+    cargo:true,
+    email:true,
+    password: false,
+    rol:true,
+    created_at:true,
+    updated_at:true,
+};
 class SugerenciasService {
 
-    async getAll(){
-        return await prisma.sugerencia.findMany();
+    async getAll(query){
+        let whereClause = {};
+        if (query) {
+            if (query.id) {
+              whereClause.id = +query.id; // Filter by ID if provided
+            }
+
+            if (query?.anonima !== undefined) {
+                const anonima = query?.anonima; 
+                if (anonima === 'false') {
+                  whereClause.anonima = false; // Filter by role if provided
+                }else{
+                  whereClause.anonima = true; // Filter by role if provided
+                }            
+                  console.log(whereClause)
+            }
+        
+          }
+          return await prisma.sugerencia.findMany({
+              where: whereClause,              
+              include: {
+                usuario: {
+                    select: selectOptions,
+                }
+              }
+          });
     }
 
     async getOne(id){
@@ -12,7 +50,13 @@ class SugerenciasService {
         });
     }
 
-    async create(data){
+    async create(req){
+        const data = req.body;
+        console.log("usuario", req.authUser)
+        const usuarioId = req?.authUser?.id;
+        if (data?.anonima == false) {
+            data.usuarioId = usuarioId;
+        }
         return await prisma.sugerencia.create({
             data
         });
@@ -22,7 +66,7 @@ class SugerenciasService {
         const { id } = data;
         return await prisma.sugerencia.update({
             where: { id },
-            body: { ...data }
+            data
         });
     }
 

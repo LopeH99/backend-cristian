@@ -16,7 +16,8 @@ COPY . .
 # Expose the port your app is listening on
 EXPOSE 3000
 
+# Copia wait-for-it.sh al contenedor
+COPY wait-for-it.sh /usr/src/app/wait-for-it.sh
 # Command to run your app
 #CMD [ "sh", "-c", "npx nodemon -L index.js" ]
-CMD npx prisma migrate dev --name initial && npx prisma studio & npx nodemon -L index.js
-
+CMD ["sh", "-c", "/usr/src/app/wait-for-it.sh db:3306 -- npx prisma migrate dev --name initial && npx prisma db seed && npx prisma studio & npx nodemon -L index.js"]

@@ -22,7 +22,7 @@ class MenusService {
         const { id } = data;
         return await prisma.menu.update({
             where: { id },
-            body: { ...data }
+            data
         });
     }
 

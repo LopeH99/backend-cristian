@@ -6,7 +6,7 @@ const menusService = new MenusService();
 
 
 router.get('/', async (req, res) => {
-    const menus = menusService.getAll();
+    const menus = await menusService.getAll();
     let ok = false;
     if (menus) {
         ok = true;

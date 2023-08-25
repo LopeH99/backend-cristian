@@ -64,6 +64,9 @@ router.delete('/:id', async (req, res) => {
         return res.json({ok: false , message: "Debe ingresar un id"});
     }
     const id = +req.params?.id;
+    if (id === 1) {
+        return res.json({ok: false , message: "No puede eliminar el usuario super admin"});
+    }
     let ok = false;
     try {
         const usuario = await usuariosService.delete(id);

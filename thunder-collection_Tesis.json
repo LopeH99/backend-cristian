@@ -1,0 +1,632 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Tesis",
+    "dateExported": "2023-08-25T22:58:58.001Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "f4d39d17-149c-4b60-9578-8f2d9386efa9",
+            "name": "usuarios",
+            "containerId": "",
+            "created": "2023-08-09T23:44:50.955Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "09c57bde-99b2-449f-bf8a-61e40d81f142",
+            "name": "sugerencias",
+            "containerId": "",
+            "created": "2023-08-09T23:45:24.698Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "9570bda8-7288-4ff2-b42b-e63d49e1319e",
+            "name": "eventos",
+            "containerId": "",
+            "created": "2023-08-09T23:45:36.149Z",
+            "sortNum": 60000
+        },
+        {
+            "_id": "bd69b101-9227-4c82-bd91-2ae883954bd6",
+            "name": "horarios",
+            "containerId": "",
+            "created": "2023-08-09T23:45:58.898Z",
+            "sortNum": 80000
+        },
+        {
+            "_id": "b8044f53-b659-4a86-8c3b-9886fcef71a6",
+            "name": "licencias",
+            "containerId": "",
+            "created": "2023-08-09T23:46:06.010Z",
+            "sortNum": 90000
+        },
+        {
+            "_id": "52a87307-cd02-4306-a14b-b1adac45cca6",
+            "name": "comedor",
+            "containerId": "",
+            "created": "2023-08-09T23:46:11.492Z",
+            "sortNum": 100000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "2ec00c20-2896-4ed2-b21e-bbc1f774ba5f",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "f4d39d17-149c-4b60-9578-8f2d9386efa9",
+            "name": "login admin",
+            "url": "http://localhost:3000/auth/login",
+            "method": "POST",
+            "sortNum": 15000,
+            "created": "2023-08-09T22:45:11.283Z",
+            "modified": "2023-08-16T01:19:35.214Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"admin@tesis.com\",\n  \"password\": \"1234\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d44bb86d-4cf7-4de8-b699-95aa6eea4896",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "",
+            "name": "me",
+            "url": "http://localhost:1337/api/users/me?populate=role",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-08-09T23:51:14.714Z",
+            "modified": "2023-08-10T22:45:12.110Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [
+                {
+                    "name": "populate",
+                    "value": "role",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "7bbb7bec-8a96-41a6-9299-0c0c6e987c68",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "f4d39d17-149c-4b60-9578-8f2d9386efa9",
+            "name": "lista",
+            "url": "http://localhost:3000/usuarios?egresado=false",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-08-10T00:57:12.165Z",
+            "modified": "2023-08-23T21:07:36.002Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "egresado",
+                    "value": "false",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjkxNjI5MzAwLCJleHAiOjE2OTQyMjEzMDB9.GTFSSGQVONuJi87eBRMRzKgUs_rYvl6Q8jNHTirfCws"
+            },
+            "tests": []
+        },
+        {
+            "_id": "8343b908-bcfc-45da-8253-1d70a2a8da8e",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "f4d39d17-149c-4b60-9578-8f2d9386efa9",
+            "name": "obtener alumno especifico",
+            "url": "http://localhost:3000/usuarios/1",
+            "method": "GET",
+            "sortNum": 35000,
+            "created": "2023-08-22T22:26:29.597Z",
+            "modified": "2023-08-22T22:30:00.538Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjkxNjI5MzAwLCJleHAiOjE2OTQyMjEzMDB9.GTFSSGQVONuJi87eBRMRzKgUs_rYvl6Q8jNHTirfCws"
+            },
+            "tests": []
+        },
+        {
+            "_id": "0ee1d1bd-5207-4d72-a444-a9074d53de24",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "f4d39d17-149c-4b60-9578-8f2d9386efa9",
+            "name": "crear",
+            "url": "http://localhost:3000/usuarios",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-08-10T22:46:47.445Z",
+            "modified": "2023-08-23T00:03:00.509Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n      \"nombre\": \"alumno2\",\n      \"apellido\": \"test2\",\n      \"password\": \"1234\",\n      \"dni\": 2,\n      \"sexo\": \"F\",\n      \"fechaNacimiento\": \"1970-01-01T00:00:00.000Z\",\n      \"cargo\": null,\n      \"telefono\": null,\n      \"revista\": null,\n      \"antiguedadDocente\": null,\n      \"antiguedadInstitucion\": null,\n      \"observaciones\": null,\n      \"legajo\": null,\n      \"gradoEscolar\": null,\n      \"seccion\": null,\n      \"telefonoTutor\": null,\n      \"fechaIngreso\": null,\n      \"pagoSeguroEscolar\": null,\n      \"fechaEgreso\": \"2023-08-22T22:41:25.537Z\",\n      \"email\": \"a2@tesis.com\",\n      \"rol\": \"ALUMNO\",\n      \"created_at\": \"2023-08-22T22:41:25.537Z\",\n      \"updated_at\": \"2023-08-22T22:41:25.537Z\"\n    }",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "50cd8d14-a242-4765-918a-70b459228b1e",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "f4d39d17-149c-4b60-9578-8f2d9386efa9",
+            "name": "actualizar",
+            "url": "http://localhost:3000/usuarios/5",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2023-08-23T00:03:46.894Z",
+            "modified": "2023-08-23T01:31:44.749Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n      \"nombre\": \"alumno2\",\n      \"apellido\": \"test2\",\n      \"dni\": 4,\n      \"sexo\": \"F\",\n      \"telefonoTutor\": \"54444444\"\n    }",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "c67b3954-7d8b-4d49-8733-d86121c8b3d7",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "f4d39d17-149c-4b60-9578-8f2d9386efa9",
+            "name": "eliminar",
+            "url": "http://localhost:3000/usuarios/6",
+            "method": "DELETE",
+            "sortNum": 70000,
+            "created": "2023-08-23T21:01:53.733Z",
+            "modified": "2023-08-23T21:05:03.641Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n      \"nombre\": \"alumno2\",\n      \"apellido\": \"test2\",\n      \"dni\": 4,\n      \"sexo\": \"F\",\n      \"telefonoTutor\": \"54444444\"\n    }",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "c2d39cbf-6c0a-48e1-bc2b-e6dc1c1c181d",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "9570bda8-7288-4ff2-b42b-e63d49e1319e",
+            "name": "lista eventos",
+            "url": "http://localhost:3000/eventos?novedad=false&incidencia=false",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-08-23T21:37:00.823Z",
+            "modified": "2023-08-23T21:38:21.383Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "novedad",
+                    "value": "false",
+                    "isPath": false
+                },
+                {
+                    "name": "incidencia",
+                    "value": "false",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "ceb41adb-4b68-4f7f-8406-85c41a7bf2b9",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "9570bda8-7288-4ff2-b42b-e63d49e1319e",
+            "name": "lista incidencias",
+            "url": "http://localhost:3000/eventos?incidencia=true",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2023-08-23T21:38:35.788Z",
+            "modified": "2023-08-23T21:39:13.743Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "incidencia",
+                    "value": "true",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "4bb4ec9d-2b68-4f83-93f9-2c7ab997954d",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "9570bda8-7288-4ff2-b42b-e63d49e1319e",
+            "name": "lista novedades",
+            "url": "http://localhost:3000/eventos?novedad=true",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2023-08-23T21:38:50.302Z",
+            "modified": "2023-08-23T23:00:16.561Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "novedad",
+                    "value": "true",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "c797c574-71a0-4e05-95a7-b6bb3cd6be47",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "9570bda8-7288-4ff2-b42b-e63d49e1319e",
+            "name": "crear evento",
+            "url": "http://localhost:3000/eventos",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2023-08-23T23:01:22.100Z",
+            "modified": "2023-08-24T22:15:04.218Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [],
+                "files": [
+                    {
+                        "name": "files",
+                        "value": "c:\\Users\\matix\\Downloads\\Portada-25-de-mayo-1.jpg"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "b7286002-6826-4f10-8d71-7bc9f971121c",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "9570bda8-7288-4ff2-b42b-e63d49e1319e",
+            "name": "actualizar evento",
+            "url": "http://localhost:3000/eventos/5",
+            "method": "PUT",
+            "sortNum": 115000,
+            "created": "2023-08-24T23:08:06.963Z",
+            "modified": "2023-08-25T00:35:45.319Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [],
+                "files": [
+                    {
+                        "name": "files",
+                        "value": "c:\\Users\\matix\\Downloads\\Portada-25-de-mayo-1.jpg"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "3f0b895d-d12c-45b4-b305-1a360856e413",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "9570bda8-7288-4ff2-b42b-e63d49e1319e",
+            "name": "eliminar",
+            "url": "http://localhost:3000/eventos/5",
+            "method": "DELETE",
+            "sortNum": 120000,
+            "created": "2023-08-24T22:35:22.755Z",
+            "modified": "2023-08-25T00:35:56.427Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "59ad3a01-a47b-48f9-a31b-06ab1bf518a8",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "b8044f53-b659-4a86-8c3b-9886fcef71a6",
+            "name": "lista",
+            "url": "http://localhost:3000/licencias?autorizada=true",
+            "method": "GET",
+            "sortNum": 120000,
+            "created": "2023-08-25T00:44:57.980Z",
+            "modified": "2023-08-25T01:54:47.696Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "autorizada",
+                    "value": "true",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "32c185a0-74da-4b51-b295-b30f4c409a2a",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "b8044f53-b659-4a86-8c3b-9886fcef71a6",
+            "name": "crear",
+            "url": "http://localhost:3000/licencias",
+            "method": "POST",
+            "sortNum": 122500,
+            "created": "2023-08-25T02:02:12.793Z",
+            "modified": "2023-08-25T02:04:06.433Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"articulo\" : \"prueba\",\n  \"solicitanteId\" : 2\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "e5438d32-4ba2-4054-9dba-42ebd201e246",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "b8044f53-b659-4a86-8c3b-9886fcef71a6",
+            "name": "actualizar",
+            "url": "http://localhost:3000/licencias/1",
+            "method": "PUT",
+            "sortNum": 123750,
+            "created": "2023-08-25T02:07:21.719Z",
+            "modified": "2023-08-25T02:09:48.016Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"articulo\" : \"prueba\",\n  \"solicitanteId\" : 2,\n  \"dias\": 10\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a8a6adab-6243-4e6d-92a0-52a4310c91fb",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "b8044f53-b659-4a86-8c3b-9886fcef71a6",
+            "name": "autorizar",
+            "url": "http://localhost:3000/licencias/autorizar/1",
+            "method": "POST",
+            "sortNum": 124375,
+            "created": "2023-08-25T02:15:23.163Z",
+            "modified": "2023-08-25T02:17:37.485Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "fe731985-d5e5-4bf5-8a27-5af4f82a6089",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "b8044f53-b659-4a86-8c3b-9886fcef71a6",
+            "name": "eliminar",
+            "url": "http://localhost:3000/licencias/2",
+            "method": "DELETE",
+            "sortNum": 124687.5,
+            "created": "2023-08-25T20:52:36.506Z",
+            "modified": "2023-08-25T20:52:52.158Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c7bf5441-d8cb-4b8e-bcfc-9922824c5471",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "b8044f53-b659-4a86-8c3b-9886fcef71a6",
+            "name": "obtener una",
+            "url": "http://localhost:3000/licencias?id=1",
+            "method": "GET",
+            "sortNum": 125000,
+            "created": "2023-08-25T01:58:09.466Z",
+            "modified": "2023-08-25T01:58:44.821Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "1",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "fe873642-3b31-4640-9632-32abc35fe377",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "b8044f53-b659-4a86-8c3b-9886fcef71a6",
+            "name": "autorizadas",
+            "url": "http://localhost:3000/licencias?autorizada=true",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2023-08-25T01:54:17.204Z",
+            "modified": "2023-08-25T01:57:06.723Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "autorizada",
+                    "value": "true",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "b733bee1-d6c8-4822-8eda-cb26b7291b9c",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "b8044f53-b659-4a86-8c3b-9886fcef71a6",
+            "name": "no autorizadas",
+            "url": "http://localhost:3000/licencias?autorizada=false",
+            "method": "GET",
+            "sortNum": 140000,
+            "created": "2023-08-25T01:54:26.155Z",
+            "modified": "2023-08-25T01:57:36.526Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "autorizada",
+                    "value": "false",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "45e854ca-d896-4ee7-8a5b-996e177ae34b",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "09c57bde-99b2-449f-bf8a-61e40d81f142",
+            "name": "lista",
+            "url": "http://localhost:3000/sugerencias?anonima=false",
+            "method": "GET",
+            "sortNum": 150000,
+            "created": "2023-08-25T20:57:45.544Z",
+            "modified": "2023-08-25T21:04:45.860Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "anonima",
+                    "value": "false",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "8f1d348e-e74e-4a1d-be35-1bd8c5e6ac3d",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "09c57bde-99b2-449f-bf8a-61e40d81f142",
+            "name": "crear",
+            "url": "http://localhost:3000/sugerencias",
+            "method": "POST",
+            "sortNum": 160000,
+            "created": "2023-08-25T21:04:53.490Z",
+            "modified": "2023-08-25T21:10:19.190Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"tipo\": \"REPORTAR_UN_PROBLEMA_DEL_SECTOR\",\n  \"texo\": \"no me gusta cuando\",\n  \"anonima\" : false\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "267a72bd-7eed-41a7-b6b6-f03252c2abf5",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "bd69b101-9227-4c82-bd91-2ae883954bd6",
+            "name": "lista",
+            "url": "http://localhost:3000/horarios?seccion=SECCION_A&gradoEscolar=QUINTO_GRADO",
+            "method": "GET",
+            "sortNum": 160000,
+            "created": "2023-08-25T21:31:00.650Z",
+            "modified": "2023-08-25T22:05:51.365Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "seccion",
+                    "value": "SECCION_A",
+                    "isPath": false
+                },
+                {
+                    "name": "gradoEscolar",
+                    "value": "QUINTO_GRADO",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "002bd138-b366-4989-8d5c-a9f2df321c05",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "09c57bde-99b2-449f-bf8a-61e40d81f142",
+            "name": "eliminar",
+            "url": "http://localhost:3000/sugerencias/4",
+            "method": "DELETE",
+            "sortNum": 170000,
+            "created": "2023-08-25T21:17:29.593Z",
+            "modified": "2023-08-25T21:17:51.830Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "9c459ea3-8549-4a86-97b0-efd86ca928a5",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "bd69b101-9227-4c82-bd91-2ae883954bd6",
+            "name": "crear",
+            "url": "http://localhost:3000/horarios",
+            "method": "POST",
+            "sortNum": 170000,
+            "created": "2023-08-25T21:48:50.249Z",
+            "modified": "2023-08-25T21:54:10.275Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"seccion\" : \"SECCION_A\",\n  \"gradoEscolar\" : \"QUINTO_GRADO\",\n  \"modulo\" : \"modulo1\",\n  \"lunes\" : \"matematica\",\n  \"martes\" : \"lengua\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a2c4f69f-4d0f-4695-9c52-2c60e2d3c46b",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "bd69b101-9227-4c82-bd91-2ae883954bd6",
+            "name": "editar",
+            "url": "http://localhost:3000/horarios/1",
+            "method": "PUT",
+            "sortNum": 180000,
+            "created": "2023-08-25T22:00:04.685Z",
+            "modified": "2023-08-25T22:02:50.323Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"seccion\" : \"SECCION_A\",\n  \"gradoEscolar\" : \"QUINTO_GRADO\",\n  \"modulo\" : \"modulo1\",\n  \"lunes\" : \"matematica\",\n  \"martes\" : \"lengua\",\n  \"miercoles\" : \"plastica\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "af685488-01a3-41df-9b14-d8efeb18a620",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "bd69b101-9227-4c82-bd91-2ae883954bd6",
+            "name": "eliminar",
+            "url": "http://localhost:3000/horarios/2",
+            "method": "DELETE",
+            "sortNum": 190000,
+            "created": "2023-08-25T22:28:12.841Z",
+            "modified": "2023-08-25T22:31:12.178Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ],
+    "settings": {
+        "auth": {
+            "type": "bearer",
+            "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiQURNSU4iLCJpYXQiOjE2OTI5OTU5NTksImV4cCI6MTY5MzI1NTE1OX0.lNgJK9hs-qyrAzYDzOXszmt1bL1q1c_CdkCgNALx75o"
+        },
+        "options": {
+            "baseUrl": "http://localhost:1337/api/"
+        }
+    }
+}

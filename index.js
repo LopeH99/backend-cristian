@@ -8,6 +8,7 @@ import licenciasRoutes from './routes/licencias.js'
 import menusRoutes from './routes/menus.js'
 import sugerenciasRoutes from './routes/sugerencias.js'
 import usuariosRoutes from './routes/usuarios.js'
+import authMiddleware from './middlewares/authMiddleware.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -15,12 +16,12 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 app.use('/auth', authRoutes);
-app.use('/eventos', eventosRoutes);
-app.use('/horarios', horariosRoutes);
-app.use('/licencias', licenciasRoutes);
-app.use('/menus', menusRoutes);
-app.use('/sugerencias', sugerenciasRoutes);
-app.use('/usuarios', usuariosRoutes);
+app.use('/eventos',authMiddleware, eventosRoutes);
+app.use('/horarios',authMiddleware, horariosRoutes);
+app.use('/licencias',authMiddleware, licenciasRoutes);
+app.use('/menus',authMiddleware, menusRoutes);
+app.use('/sugerencias',authMiddleware, sugerenciasRoutes);
+app.use('/usuarios',authMiddleware, usuariosRoutes);
 
 // Define routes and middleware here
 app.get('/', (req,res) =>  {

@@ -178,7 +178,7 @@ class UsuariosService {
     }
 
     async licencias(usuarioId){
-        return await prisma.licencias.finMany({
+        return await prisma.licencia.finMany({
             where: {
                 solicitanteId: usuarioId
             }
@@ -186,7 +186,7 @@ class UsuariosService {
     }
 
     async egresados(){
-        return await prisma.usuarios.findMany({
+        return await prisma.usuario.findMany({
             //not eq to null
             where: { fechaEgreso: { neq: null}},
             select: selectOptions

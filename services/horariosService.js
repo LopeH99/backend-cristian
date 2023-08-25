@@ -3,31 +3,31 @@ import prisma from '../services/prismaService.js';
 class HorariosService {
 
     async getAll(){
-        return await prisma.horarios.findMany();
+        return await prisma.horario.findMany();
     }
 
     async getOne(id){
-        return await prisma.horarios.findOne({
+        return await prisma.horario.findUnique({
             where: { id }
         });
     }
 
     async create(data){
-        return await prisma.horarios.create({
+        return await prisma.horario.create({
             data
         });
     }
 
     async update(data){
         const { id } = data;
-        return await prisma.horarios.update({
+        return await prisma.horario.update({
             where: { id },
             body: { ...data }
         });
     }
 
     async delete(id){
-        return await prisma.horarios.delete({
+        return await prisma.horario.delete({
             where: { id }
         })
     }

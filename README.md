@@ -12,4 +12,12 @@ ENDPOINTS
   POST / -> crea un nuevo usuario (segun el rol sera admin, profesor, personal)
   PUT /id -> editar un usuario
   DELETE /id -> eliminar un usuario
-    
+
+- eventos (puede ser NOVEDAD, EVENTO o INCIDENCIA)
+  GET /?novedad=true -> obtiene todas las novedades  
+  GET /?incidencia=true -> obtiene todas las incidencias 
+  GET /?novedad=false&incidencia=false -> obtiene todos los eventos
+  POST / -> crea un nuevo EVENTO, INCIDENCIA o NOVEDAD, el body tiene que ser del tipo multipart form, los archivos se envian con el nombre de campo files(sin importar si es una imagen o un archivo), solo se admite o una imagen o un archivo
+  
+
+  

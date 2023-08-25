@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
-  app.use('/auth', authRoutes);
+app.use('/auth', authRoutes);
 app.use('/eventos', eventosRoutes);
 app.use('/horarios', horariosRoutes);
 app.use('/licencias', licenciasRoutes);

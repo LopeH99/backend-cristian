@@ -3,31 +3,31 @@ import prisma from './prismaService.js';
 class MenusService {
 
     async getAll(){
-        return await prisma.menus.findMany();
+        return await prisma.menu.findMany();
     }
 
     async getOne(id){
-        return await prisma.menus.findOne({
+        return await prisma.menu.findUnique({
             where: { id }
         });
     }
 
     async create(data){
-        return await prisma.menus.create({
+        return await prisma.menu.create({
             data
         });
     }
 
     async update(data){
         const { id } = data;
-        return await prisma.menus.update({
+        return await prisma.menu.update({
             where: { id },
             body: { ...data }
         });
     }
 
     async delete(id){
-        return await prisma.menus.delete({
+        return await prisma.menu.delete({
             where: { id }
         })
     }

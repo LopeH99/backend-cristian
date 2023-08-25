@@ -7,7 +7,7 @@ const usuariosService = new UsuariosService();
 const validRoles = ['ADMIN', 'ALUMNO', 'PROFESOR', 'PERSONAL'];
 
 router.get('/', async (req, res) => {
-    if (req.query?.rol && !validRoles.includes(req.query)) {
+    if (req.query?.rol && !validRoles.includes(req.query.rol.toLocaleUpperCase())) {
         return res.status(400).json({ ok: false, message: 'rol invalido' });
     }
     const usuarios = await usuariosService.getAll(req.query);

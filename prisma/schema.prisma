@@ -60,8 +60,9 @@ model evento {
   id         Int      @id @default(autoincrement())
   tipo       String?
   titulo     String?
-  imagen     String?
+  novedad    Boolean @default(false)
   incidencia Boolean @default(false)
+  imagen     String?
   archivo    String?
   fecha      DateTime?
   created_at DateTime @default(now())

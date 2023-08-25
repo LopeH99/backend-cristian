@@ -3,31 +3,31 @@ import prisma from './prismaService.js';
 class SugerenciasService {
 
     async getAll(){
-        return await prisma.sugerencias.findMany();
+        return await prisma.sugerencia.findMany();
     }
 
     async getOne(id){
-        return await prisma.sugerencias.findOne({
+        return await prisma.sugerencia.findUnique({
             where: { id }
         });
     }
 
     async create(data){
-        return await prisma.sugerencias.create({
+        return await prisma.sugerencia.create({
             data
         });
     }
 
     async update(data){
         const { id } = data;
-        return await prisma.sugerencias.update({
+        return await prisma.sugerencia.update({
             where: { id },
             body: { ...data }
         });
     }
 
     async delete(id){
-        return await prisma.sugerencias.delete({
+        return await prisma.sugerencia.delete({
             where: { id }
         })
     }

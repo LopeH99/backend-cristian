@@ -1,19 +1,23 @@
-const roleMiddleware = (...allowedRoles) => {
-    return (req, res, next) => {
-      const userRole = req.authUser?.rol;
-  
-      if (!userRole) {
-        return res.status(401).json({ error: 'No autenticado' });
-      }
-  
-      // Controlar si el rol indicado esta autorizado
-      if (allowedRoles.includes(userRole)) {
-        next(); // Sigue con el proximo middleware
-      } else {
-        return res.status(403).json({ error: 'No autorizado' });
-      }
-    };
+const roleMiddleware = (allowedMethodsByRole) => {
+  return (req, res, next) => {
+    const userRole = req.authUser?.rol;
+    console.log(userRole)
+    const allowedMethods = allowedMethodsByRole[userRole] || [];
+
+    if (!userRole) {
+      return res.status(401).json({ok: false, error: 'No autenticado' });
+    }
+
+    const route = req.baseUrl;
+    const method = req.method;
+
+    if (userRole === 'ADMIN' || allowedMethods.includes('*') || allowedMethods.includes(`${method} ${route}`)) {
+      next();
+    } else {
+      return res.status(403).json({ok: false, error: 'No autorizado' });
+    }
   };
+};
   
   export default roleMiddleware;
   

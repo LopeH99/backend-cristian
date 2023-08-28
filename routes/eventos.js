@@ -8,7 +8,7 @@ const fileService = new FileService();
 
 //get all with filters
 router.get("/", async (req, res) => {
-  fileService.handleFileUpload(req, res, next);
+ 
   let entidad = "eventos";
   if (req.query) {
     if (req.query?.novedad !== undefined) {

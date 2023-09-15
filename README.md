@@ -4,7 +4,12 @@ clonar el repositorio
 ```sh
   git clone https://github.com/matiast02/backend-cristian.git
 ```
+### Ejecutar el proyecto sin docker
+npm i
+prisma generate
+npm run start
 
+### Ejecutar el proyecto con docker
 Abrir una consola dentro del proyecto y ejectuar por unica vez:
 
 ```sh

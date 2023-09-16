@@ -6,7 +6,7 @@ clonar el repositorio
 ```
 ### Ejecutar el proyecto sin docker
 npm i
-prisma generate
+npx prisma generate
 npm run start
 
 ### Ejecutar el proyecto con docker

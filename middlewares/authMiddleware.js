@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import prisma from '../services/prismaService.js';
 
 const authMiddleware = async (req, res, next) => {
-  const token = req.header('Authorization').split(" ").pop();
+  const token = req.header('Authorization')?.split(" ").pop();
   if (!token) {
     return res.status(401).json({ error: 'Token no enviado' });
   }

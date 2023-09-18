@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors'
 
 import authRoutes from './routes/auth.js'
 import eventosRoutes from './routes/eventos.js'
@@ -13,8 +14,12 @@ import roleMiddleware from './middlewares/rolMiddleware.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+app.use(cors({
+  origin: '*'
+}));
 
 app.use(bodyParser.json());
+
 
 const allowedMethodsByRole = {
   ADMIN: ['*'],

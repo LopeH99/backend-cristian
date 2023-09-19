@@ -25,6 +25,7 @@ const allowedMethodsByRole = {
   ADMIN: ['*'],
   PROFESOR: ['GET /eventos','GET /sugerencias','GET /horarios'],
   PERSONAL: ['GET /eventos','GET /sugerencias','GET /horarios','GET /menus'],
+  ALUMNO: [],
 };
 
 

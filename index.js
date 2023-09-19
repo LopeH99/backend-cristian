@@ -29,12 +29,12 @@ const allowedMethodsByRole = {
 
 
 app.use('/auth', authRoutes);
-app.use('/eventos',authMiddleware, eventosRoutes);
-app.use('/horarios',authMiddleware, horariosRoutes);
+app.use('/eventos',authMiddleware,roleMiddleware(allowedMethodsByRole), eventosRoutes);
+app.use('/horarios',authMiddleware,roleMiddleware(allowedMethodsByRole), horariosRoutes);
 app.use('/licencias',authMiddleware,roleMiddleware(allowedMethodsByRole), licenciasRoutes);
-app.use('/menus',authMiddleware, menusRoutes);
-app.use('/sugerencias',authMiddleware, sugerenciasRoutes);
-app.use('/usuarios',authMiddleware, usuariosRoutes);
+app.use('/menus',authMiddleware,roleMiddleware(allowedMethodsByRole), menusRoutes);
+app.use('/sugerencias',authMiddleware,roleMiddleware(allowedMethodsByRole), sugerenciasRoutes);
+app.use('/usuarios',authMiddleware,roleMiddleware(allowedMethodsByRole), usuariosRoutes);
 
 // Define routes and middleware here
 app.get('/', (req,res) =>  {

@@ -11,14 +11,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 // schema.prisma
 
 model usuario {
-  id                    Int      @id @default(autoincrement())
+  id                    Int           @id @default(autoincrement())
   nombre                String
   apellido              String
-  dni                   Int      @unique
+  dni                   Int           @unique
   sexo                  Sexo
   fechaNacimiento       DateTime
   cargo                 Cargo?
@@ -34,80 +33,81 @@ model usuario {
   fechaIngreso          DateTime?
   pagoSeguroEscolar     Boolean?
   fechaEgreso           DateTime?
-  email                 String   @unique
+  email                 String        @unique
   password              String
   rol                   Rol
-  created_at            DateTime @default(now())
-  updated_at            DateTime @default(now())
+  created_at            DateTime      @default(now())
+  updated_at            DateTime      @default(now())
 
   // Relations
-  licenciasSolicitadas  licencia[] @relation("solicitante")
-  licenciasAutorizadas  licencia[] @relation("autorizante")
-  sugerencias           sugerencia[]
+  licenciasSolicitadas licencia[]   @relation("solicitante")
+  licenciasAutorizadas licencia[]   @relation("autorizante")
+  sugerencias          sugerencia[]
 }
 
 model sugerencia {
-  id        Int      @id @default(autoincrement())
-  tipo      Tipo
-  texo      String?
-  anonima   Boolean  @default(true)
-  usuarioId Int?
-  usuario   usuario? @relation(fields: [usuarioId], references: [id])
+  id         Int      @id @default(autoincrement())
+  tipo       Tipo
+  texo       String?
+  anonima    Boolean  @default(true)
+  usuarioId  Int?
+  usuario    usuario? @relation(fields: [usuarioId], references: [id])
   created_at DateTime @default(now())
   updated_at DateTime @default(now())
 }
 
 model evento {
-  id         Int      @id @default(autoincrement())
-  tipo       String?
-  titulo     String?
-  novedad    Boolean @default(false)
-  incidencia Boolean @default(false)
-  imagen     String?
-  archivo    String?
-  fecha      DateTime?
-  created_at DateTime @default(now())
-  updated_at DateTime @default(now())
+  id          Int       @id @default(autoincrement())
+  tipo        String?
+  titulo      String?
+  novedad     Boolean   @default(false)
+  incidencia  Boolean   @default(false)
+  imagen      String?
+  archivo     String?
+  fecha       DateTime?
+  descripcion String?
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @default(now())
 }
 
 model horario {
-  id                 Int      @id @default(autoincrement())
-  seccion            Seccion
-  gradoEscolar       GradoEscolar?
-  modulo             String?
-  rangoHorario       String?
-  lunes              String?
-  martes             String?
-  miercoles          String?
-  jueves             String?
-  viernes            String?
-  created_at         DateTime @default(now())
-  updated_at         DateTime @default(now())
+  id           Int           @id @default(autoincrement())
+  seccion      Seccion
+  gradoEscolar GradoEscolar?
+  modulo       String?
+  rangoHorario String?
+  lunes        String?
+  martes       String?
+  miercoles    String?
+  jueves       String?
+  viernes      String?
+  created_at   DateTime      @default(now())
+  updated_at   DateTime      @default(now())
 }
 
 model licencia {
-  id            Int      @id @default(autoincrement())
-  solicitanteId Int
-  autorizanteId Int?
+  id             Int       @id @default(autoincrement())
+  solicitanteId  Int
+  autorizanteId  Int?
   fechaSolicitud DateTime? @default(now())
-  dias          Int?
-  expira        DateTime?
+  dias           Int?
+  expira         DateTime?
   articulo       String
-  created_at    DateTime @default(now())
-  updated_at    DateTime @default(now())
+  created_at     DateTime  @default(now())
+  updated_at     DateTime  @default(now())
 
   // Relations
-  solicitante   usuario  @relation("solicitante", fields: [solicitanteId], references: [id])
-  autorizante   usuario? @relation("autorizante", fields: [autorizanteId], references: [id])
+  solicitante usuario  @relation("solicitante", fields: [solicitanteId], references: [id])
+  autorizante usuario? @relation("autorizante", fields: [autorizanteId], references: [id])
 }
 
 model menu {
-  id          Int      @id @default(autoincrement())
-  menu        String?
+  id           Int      @id @default(autoincrement())
+  menu         String?
   ingredientes String?
-  fecha       DateTime
-  created_at  DateTime @default(now())
-  updated_at  DateTime @default(now())
+  fecha        DateTime
+  created_at   DateTime @default(now())
+  updated_at   DateTime @default(now())
 }
 
 enum Sexo {

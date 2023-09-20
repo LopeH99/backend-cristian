@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Tesis",
-    "dateExported": "2023-08-25T22:58:58.001Z",
+    "dateExported": "2023-09-20T22:49:51.423Z",
     "version": "1.1",
     "folders": [
         {
@@ -98,27 +98,95 @@
             "tests": []
         },
         {
+            "_id": "f3a2d92e-3568-4d23-ae48-308d3837275d",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "f4d39d17-149c-4b60-9578-8f2d9386efa9",
+            "name": "login alumno",
+            "url": "http://localhost:3000/auth/login",
+            "method": "POST",
+            "sortNum": 22500,
+            "created": "2023-08-28T22:45:25.161Z",
+            "modified": "2023-08-28T22:45:38.481Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"user6@tesis.com\",\n  \"password\": \"1234\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d06f6c1a-6b54-4b52-9e4a-9a1fa3866d52",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "f4d39d17-149c-4b60-9578-8f2d9386efa9",
+            "name": "login profesor",
+            "url": "http://localhost:3000/auth/login",
+            "method": "POST",
+            "sortNum": 26250,
+            "created": "2023-08-28T22:55:33.137Z",
+            "modified": "2023-08-28T22:56:07.893Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"user1@tesis.com\",\n  \"password\": \"1234\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "f5330f9a-a73b-46f4-a69d-483100e33b7f",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "f4d39d17-149c-4b60-9578-8f2d9386efa9",
+            "name": "login personal",
+            "url": "http://localhost:3000/auth/login",
+            "method": "POST",
+            "sortNum": 28125,
+            "created": "2023-08-28T22:55:47.211Z",
+            "modified": "2023-08-28T22:57:22.553Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"user9@tesis.com\",\n  \"password\": \"1234\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
             "_id": "7bbb7bec-8a96-41a6-9299-0c0c6e987c68",
             "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
             "containerId": "f4d39d17-149c-4b60-9578-8f2d9386efa9",
             "name": "lista",
-            "url": "http://localhost:3000/usuarios?egresado=false",
+            "url": "http://localhost:3000/usuarios?rol=ALUMNO",
             "method": "GET",
             "sortNum": 30000,
             "created": "2023-08-10T00:57:12.165Z",
-            "modified": "2023-08-23T21:07:36.002Z",
+            "modified": "2023-09-18T21:03:34.338Z",
             "headers": [],
             "params": [
                 {
-                    "name": "egresado",
-                    "value": "false",
+                    "name": "rol",
+                    "value": "ALUMNO",
                     "isPath": false
                 }
             ],
-            "auth": {
-                "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjkxNjI5MzAwLCJleHAiOjE2OTQyMjEzMDB9.GTFSSGQVONuJi87eBRMRzKgUs_rYvl6Q8jNHTirfCws"
-            },
             "tests": []
         },
         {
@@ -130,12 +198,12 @@
             "method": "GET",
             "sortNum": 35000,
             "created": "2023-08-22T22:26:29.597Z",
-            "modified": "2023-08-22T22:30:00.538Z",
+            "modified": "2023-08-28T21:36:04.838Z",
             "headers": [],
             "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjkxNjI5MzAwLCJleHAiOjE2OTQyMjEzMDB9.GTFSSGQVONuJi87eBRMRzKgUs_rYvl6Q8jNHTirfCws"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiQURNSU4iLCJpYXQiOjE2OTMyNTg0OTEsImV4cCI6MTY5MzUxNzY5MX0.U48736_gjMheyPlaSiRHhAqM2YkrFagAUi7Gj_7GMZs"
             },
             "tests": []
         },
@@ -148,7 +216,7 @@
             "method": "POST",
             "sortNum": 50000,
             "created": "2023-08-10T22:46:47.445Z",
-            "modified": "2023-08-23T00:03:00.509Z",
+            "modified": "2023-09-20T21:26:25.507Z",
             "headers": [
                 {
                     "name": "Content-Type",
@@ -159,7 +227,7 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n      \"nombre\": \"alumno2\",\n      \"apellido\": \"test2\",\n      \"password\": \"1234\",\n      \"dni\": 2,\n      \"sexo\": \"F\",\n      \"fechaNacimiento\": \"1970-01-01T00:00:00.000Z\",\n      \"cargo\": null,\n      \"telefono\": null,\n      \"revista\": null,\n      \"antiguedadDocente\": null,\n      \"antiguedadInstitucion\": null,\n      \"observaciones\": null,\n      \"legajo\": null,\n      \"gradoEscolar\": null,\n      \"seccion\": null,\n      \"telefonoTutor\": null,\n      \"fechaIngreso\": null,\n      \"pagoSeguroEscolar\": null,\n      \"fechaEgreso\": \"2023-08-22T22:41:25.537Z\",\n      \"email\": \"a2@tesis.com\",\n      \"rol\": \"ALUMNO\",\n      \"created_at\": \"2023-08-22T22:41:25.537Z\",\n      \"updated_at\": \"2023-08-22T22:41:25.537Z\"\n    }",
+                "raw": "{\n      \"nombre\": \"alumno2\",\n      \"apellido\": \"test2\",\n      \"dni\": 4,\n      \"sexo\": \"F\",\n      \"fechaNacimiento\": \"1970-01-01T00:00:00.000Z\",\n      \"telefonoTutor\": \"4444444\",\n      \"pagoSeguroEscolar\": true,\n      \"fechaEgreso\": \"2023-08-22T22:41:25.537Z\",\n      \"email\": \"a3@tesis.com\",\n      \"rol\": \"ALUMNO\"\n    }",
                 "form": []
             },
             "tests": []
@@ -173,7 +241,7 @@
             "method": "PUT",
             "sortNum": 60000,
             "created": "2023-08-23T00:03:46.894Z",
-            "modified": "2023-08-23T01:31:44.749Z",
+            "modified": "2023-09-20T21:36:13.677Z",
             "headers": [
                 {
                     "name": "Content-Type",
@@ -372,7 +440,7 @@
             "method": "POST",
             "sortNum": 122500,
             "created": "2023-08-25T02:02:12.793Z",
-            "modified": "2023-08-25T02:04:06.433Z",
+            "modified": "2023-09-20T21:50:47.900Z",
             "headers": [],
             "params": [],
             "body": {
@@ -518,7 +586,7 @@
             "method": "POST",
             "sortNum": 160000,
             "created": "2023-08-25T21:04:53.490Z",
-            "modified": "2023-08-25T21:10:19.190Z",
+            "modified": "2023-09-20T21:40:19.493Z",
             "headers": [],
             "params": [],
             "body": {
@@ -576,7 +644,7 @@
             "method": "POST",
             "sortNum": 170000,
             "created": "2023-08-25T21:48:50.249Z",
-            "modified": "2023-08-25T21:54:10.275Z",
+            "modified": "2023-09-20T21:48:31.504Z",
             "headers": [],
             "params": [],
             "body": {
@@ -618,12 +686,78 @@
             "headers": [],
             "params": [],
             "tests": []
+        },
+        {
+            "_id": "5f4b7c1b-2c87-4a41-8f6f-2c2bc2c404a2",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "52a87307-cd02-4306-a14b-b1adac45cca6",
+            "name": "lista menus",
+            "url": "http://localhost:3000/menus",
+            "method": "GET",
+            "sortNum": 200000,
+            "created": "2023-09-20T21:56:56.764Z",
+            "modified": "2023-09-20T22:01:56.295Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "af19c837-f272-4ef5-9043-aec4b147bb7b",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "52a87307-cd02-4306-a14b-b1adac45cca6",
+            "name": "crear menu",
+            "url": "http://localhost:3000/menus",
+            "method": "POST",
+            "sortNum": 210000,
+            "created": "2023-09-20T22:02:04.264Z",
+            "modified": "2023-09-20T22:38:42.323Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"menu\": \"pollo al horno con papas\",\n  \"ingredientes\": \"pollo y papas\",\n  \"fecha\":  \"2023-01-01T00:00:00.000Z\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "8ded3b8d-6cff-4987-98ca-1215762ca2f7",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "52a87307-cd02-4306-a14b-b1adac45cca6",
+            "name": "editar menu",
+            "url": "http://localhost:3000/menus/1",
+            "method": "DELETE",
+            "sortNum": 220000,
+            "created": "2023-09-20T22:38:53.241Z",
+            "modified": "2023-09-20T22:47:39.251Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "41283c62-76b4-4e23-b940-2d6d8f45b7ef",
+            "colId": "89003ecf-e4cb-499b-8728-c84b52c59569",
+            "containerId": "52a87307-cd02-4306-a14b-b1adac45cca6",
+            "name": "eliminar menu",
+            "url": "http://localhost:3000/menus/1",
+            "method": "PUT",
+            "sortNum": 230000,
+            "created": "2023-09-20T22:47:19.619Z",
+            "modified": "2023-09-20T22:47:19.619Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n \n  \"ingredientes\": \"pollo y papas\",\n  \"fecha\":  \"2023-01-01T00:00:00.000Z\"\n}",
+                "form": []
+            },
+            "tests": []
         }
     ],
     "settings": {
         "auth": {
             "type": "bearer",
-            "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiQURNSU4iLCJpYXQiOjE2OTI5OTU5NTksImV4cCI6MTY5MzI1NTE1OX0.lNgJK9hs-qyrAzYDzOXszmt1bL1q1c_CdkCgNALx75o"
+            "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiQURNSU4iLCJpYXQiOjE2OTUyNDM1NTksImV4cCI6MTY5NTUwMjc1OX0.a4vUvzg9Rw_BW_DQaeJ8SbyKy1qwsKSPS2PYnkDImAQ"
         },
         "options": {
             "baseUrl": "http://localhost:1337/api/"

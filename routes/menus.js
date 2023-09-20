@@ -56,4 +56,28 @@ router.put("/:id", validateMenuCreateOrUpdate, async (req, res) => {
   }
 });
 
+
+router.delete("/:id", async (req, res) => {
+  let ok = false;
+  const id = +req.params?.id;
+  if (!id) {
+    return res.json({ ok: false, message: "Debe ingresar un id" });
+  }
+  const menu = await menusService.getOne(id);
+  if (!menu) {
+    return res.json({ ok: false, message: "el menu indicada no existe" });
+  }
+
+  try {
+    const menu = await menusService.delete(id);
+    if (menu) {
+      ok = true;
+    }
+    res.json({ ok, message: "menu eliminado", menu });
+  } catch (error) {
+    res.json({ ok, message: error.message });
+  }
+});
+
+
 export default router;

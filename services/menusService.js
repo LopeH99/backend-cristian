@@ -18,8 +18,7 @@ class MenusService {
         });
     }
 
-    async update(data){
-        const { id } = data;
+    async update(id, data){
         return await prisma.menu.update({
             where: { id },
             data

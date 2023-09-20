@@ -39,7 +39,7 @@ router.put("/:id", validateMenuCreateOrUpdate, async (req, res) => {
   }
   const menu = await menusService.getOne(id);
   if (!menu) {
-    return res.json({ ok: false, message: "el menu indicada no existe" });
+    return res.json({ ok: false, message: "el menu indicado no existe" });
   }
 
   try {

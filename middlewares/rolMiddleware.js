@@ -1,7 +1,7 @@
 const roleMiddleware = (allowedMethodsByRole) => {
   return (req, res, next) => {
     const userRole = req.authUser?.rol;
-    console.log(userRole)
+
     const allowedMethods = allowedMethodsByRole[userRole] || [];
 
     if (!userRole) {

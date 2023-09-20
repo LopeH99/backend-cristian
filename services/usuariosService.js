@@ -119,7 +119,11 @@ class UsuariosService {
           if (data?.password) {
             const hashedPassword = await bcrypt.hash(data.password, 10);
             data.password = hashedPassword;
+          }else{
+            const hashedPassword = await bcrypt.hash('1234', 10);
+            data.password = hashedPassword;
           }
+          
         return await prisma.usuario.create({
             data
         });

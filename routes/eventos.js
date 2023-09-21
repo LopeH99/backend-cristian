@@ -76,8 +76,8 @@ router.post(
 
     req.body.imagen = imagen.shift();
     req.body.archivo = archivo.shift();
-    req.body.novedad = req?.novedad.toLowerCase() === "true"
-    req.body.incidencia = req?.incidencia.toLowerCase() === "true"
+    req.body.novedad = req?.novedad?.toLowerCase() === "true"
+    req.body.incidencia = req?.incidencia?.toLowerCase() === "true"
 
     try {
       const resultado = await eventoService.create(req.body);

@@ -59,33 +59,37 @@ router.post(
         }
       }
     }
-    const imagen = uploadedFilePaths.filter(
-      (filepath) => {
-        const path = filepath.toLowerCase();
-        return 
-          path.includes(".jpg") ||
-          path.includes(".png") ||
-          path.includes(".jpeg")
+    const imagen = uploadedFilePaths.filter((filepath) => {
+      const path = filepath.toLowerCase();
+      if (
+        path.includes(".jpg") ||
+        path.includes(".png") ||
+        path.includes(".jpeg")
+      ) {
+        return true;
       }
-    );
+      return false;
+    });
 
-    const archivo = uploadedFilePaths.filter(
-      (filepath) => {
-        const path = filepath.toLowerCase();
-        return
-          path.includes(".pdf") ||
-          path.includes(".xlsx") ||
-          path.includes(".doc")
+    const archivo = uploadedFilePaths.filter((filepath) => {
+      const path = filepath.toLowerCase();
+      if (
+        path.includes(".pdf") ||
+        path.includes(".xlsx") ||
+        path.includes(".doc")
+      ) {
+        return true;
       }
-    );
+      return false;
+    });
     console.log(uploadedFilePaths);
     console.log("imagen", imagen);
     console.log("archivo", archivo);
-    
+
     req.body.imagen = imagen.shift();
     req.body.archivo = archivo.shift();
-    req.body.novedad = req.body?.novedad?.toLowerCase() === "true"
-    req.body.incidencia = req.body?.incidencia?.toLowerCase() === "true"
+    req.body.novedad = req.body?.novedad?.toLowerCase() === "true";
+    req.body.incidencia = req.body?.incidencia?.toLowerCase() === "true";
 
     try {
       const resultado = await eventoService.create(req.body);
@@ -205,8 +209,10 @@ router.put(
       }
       return res.json({ ok, [entidad]: resultado });
     } catch (error) {
-      const err = await errorHandler(error)
-      return res.status(500).json({ok: false, message: "Error en el servidor", error: err})
+      const err = await errorHandler(error);
+      return res
+        .status(500)
+        .json({ ok: false, message: "Error en el servidor", error: err });
     }
   }
 );

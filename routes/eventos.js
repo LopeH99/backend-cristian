@@ -60,17 +60,23 @@ router.post(
       }
     }
     const imagen = uploadedFilePaths.filter(
-      (filepath) =>
-        filepath.includes(".jpg") ||
-        filepath.includes(".png") ||
-        filepath.includes(".jpeg")
+      (filepath) => {
+        const path = filepath.toLowerCase();
+        return 
+          path.includes(".jpg") ||
+          path.includes(".png") ||
+          path.includes(".jpeg")
+      }
     );
 
     const archivo = uploadedFilePaths.filter(
-      (filepath) =>
-        filepath.includes(".pdf") ||
-        filepath.includes(".xlsx") ||
-        filepath.includes(".doc")
+      (filepath) => {
+        const path = filepath.toLowerCase();
+        return
+          path.includes(".pdf") ||
+          path.includes(".xlsx") ||
+          path.includes(".doc")
+      }
     );
     console.log(uploadedFilePaths);
     console.log("imagen", imagen);

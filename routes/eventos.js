@@ -73,7 +73,9 @@ router.post(
         filepath.includes(".doc")
     );
     console.log(uploadedFilePaths);
-
+    console.log("imagen", imagen);
+    console.log("archivo", archivo);
+    
     req.body.imagen = imagen.shift();
     req.body.archivo = archivo.shift();
     req.body.novedad = req.body?.novedad?.toLowerCase() === "true"

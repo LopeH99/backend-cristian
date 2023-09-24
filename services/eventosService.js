@@ -6,7 +6,7 @@ class EventosService {
 
     if (query) {
       if (query.id) {
-        whereClause.id = query.id; // Filter by ID if provided
+        whereClause.id = +query.id; // Filter by ID if provided
       }
 
       if (query?.novedad !== undefined) {

@@ -2,7 +2,7 @@ Descargar e instalar y ejecutar Docker Desktop https://www.docker.com/products/d
 
 clonar el repositorio
 ```sh
-  git clone https://github.com/matiast02/backend-cristian.git
+  git clone https://github.com/LopeH99/backend-cristian.git
 ```
 ### Ejecutar el proyecto sin docker
 npm i

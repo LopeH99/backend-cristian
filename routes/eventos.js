@@ -86,8 +86,14 @@ router.post(
     console.log("imagen", imagen);
     console.log("archivo", archivo);
 
-    req.body.imagen = imagen.shift();
-    req.body.archivo = archivo.shift();
+    if (imagen) {
+      req.body.imagen = imagen.shift();
+    }
+
+    if (archivo) {
+      req.body.archivo = archivo.shift();
+    }
+    
     req.body.novedad = req.body?.novedad?.toLowerCase() === "true";
     req.body.incidencia = req.body?.incidencia?.toLowerCase() === "true";
 

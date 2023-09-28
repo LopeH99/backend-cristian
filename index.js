@@ -1,6 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors'
+import { fileURLToPath } from 'url';
+import path from 'path';
 
 import authRoutes from './routes/auth.js'
 import eventosRoutes from './routes/eventos.js'
@@ -37,7 +39,12 @@ app.use('/menus',authMiddleware,roleMiddleware(allowedMethodsByRole), menusRoute
 app.use('/sugerencias',authMiddleware,roleMiddleware(allowedMethodsByRole), sugerenciasRoutes);
 app.use('/usuarios',authMiddleware,roleMiddleware(allowedMethodsByRole), usuariosRoutes);
 
-// Define routes and middleware here
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const uploadsDirectory = path.join(__dirname, 'uploads');
+
+app.use('/uploads', express.static(uploadsDirectory));
+
 app.get('/', (req,res) =>  {
     return res.json({message: "API Tesis"})});
 

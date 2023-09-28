@@ -2,11 +2,11 @@ import { z } from "zod";
 
 // Define un esquema para el modelo 'licencia'
 const licenciaSchema = z.object({
-  solicitanteId: z.number().int(),
-  autorizanteId: z.number().int().optional(),
-  fechaSolicitud: z.date().optional(),
-  dias: z.number().int().optional(),
-  expira: z.date().optional(),
+  solicitanteId: z.coerce.number().int(),
+  autorizanteId: z.coerce.number().int().optional(),
+  fechaSolicitud: z.coerce.date().optional(),
+  dias: z.coerce.number().int().optional(),
+  expira: z.coerce.date().optional(),
   articulo: z.string(),
 });
 

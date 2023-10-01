@@ -52,7 +52,7 @@ class SugerenciasService {
 
     async create(req){
         const data = req.body;
-        const anonima = data.anonima?.toLowerCase() === "true";
+        const anonima = data?.anonima.toLowerCase() === "true";
         const usuarioId = req?.authUser?.id;
         if (!anonima) {
             data.usuarioId = usuarioId;

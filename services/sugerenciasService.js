@@ -52,11 +52,12 @@ class SugerenciasService {
 
     async create(req){
         const data = req.body;
-        console.log("usuario", req.authUser)
+        const anonima = data.anonima?.toLowerCase() === "true";
         const usuarioId = req?.authUser?.id;
-        if (data?.anonima == false) {
+        if (!anonima) {
             data.usuarioId = usuarioId;
         }
+        data.anonima = anonima;
         return await prisma.sugerencia.create({
             data
         });

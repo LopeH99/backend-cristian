@@ -37,6 +37,11 @@ Si se desea eliminar el contenedor ejecutar o tocar el boton de cesto de basura 
 ### Acceder a la base de datos
 http://localhost:5555/
 
+ # Resetear base de datos
+ ```sh
+  npx prisma db push --force-reset && npx prisma db seed
+ ```
+
   # Documentación de la API
 
 **URL Base:** http://localhost:3000/

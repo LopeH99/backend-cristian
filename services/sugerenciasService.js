@@ -24,24 +24,23 @@ class SugerenciasService {
             }
 
             if (query?.anonima !== undefined) {
-                const anonima = query?.anonima; 
+                const anonima = query?.anonima;
                 if (anonima === 'false') {
                   whereClause.anonima = false; // Filter by role if provided
                 }else{
                   whereClause.anonima = true; // Filter by role if provided
-                }            
-                  console.log(whereClause)
-            }
-        
-          }
-          return await prisma.sugerencia.findMany({
-              where: whereClause,              
-              include: {
-                usuario: {
-                    select: selectOptions,
                 }
-              }
-          });
+                console.log(whereClause)
+            }
+        }
+        return await prisma.sugerencia.findMany({
+            where: whereClause,
+            include: {
+            usuario: {
+                select: selectOptions,
+            }
+            }
+        });
     }
 
     async getOne(id){
@@ -52,7 +51,7 @@ class SugerenciasService {
 
     async create(req){
         const data = req.body;
-        const anonima = data?.anonima?.toLowerCase() === "true";
+        const anonima = data?.anonima || false;
         const usuarioId = req?.authUser?.id;
         if (!anonima) {
             data.usuarioId = usuarioId;

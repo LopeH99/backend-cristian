@@ -24,8 +24,8 @@ const usuarioSchema = z.object({
     ]).optional(),
     telefono: z.string().max(20, { message: "El teléfono no debe exceder los 20 caracteres." }).optional(),
     revista: z.enum(["TITULAR", "SUPLENTE", "INTERINO"]).optional(),
-    antiguedadDocente: z.date({ message: "La fecha de antigüedad docente debe ser válida." }).optional(),
-    antiguedadInstitucion: z.date({ message: "La fecha de antigüedad en la institución debe ser válida." }).optional(),
+    antiguedadDocente: z.coerce.date({ message: "La fecha de antigüedad docente debe ser válida." }).optional(),
+    antiguedadInstitucion: z.coerce.date({ message: "La fecha de antigüedad en la institución debe ser válida." }).optional(),
     observaciones: z
       .string()
       .max(1000, { message: "Las observaciones no deben exceder los 1000 caracteres." })

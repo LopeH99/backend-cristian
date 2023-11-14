@@ -15,8 +15,10 @@ router.get("/", async (req, res) => {
   res.json({ ok, licencias });
 });
 
-router.post("/", validateLicenciaCreateOrUpdate, async (req, res) => {
+router.post("/", async (req, res) => {
   let ok = false;
+  const authUser = req.authUser;
+  req.body.solicitanteId = authUser.id;
   try {
     const licencias = await licenciasService.create(req.body);
     if (licencias) {

@@ -159,7 +159,7 @@ class UsuariosService {
                     where: { email: data.email }
                 });
     
-                if (existingUserWithEmail) {
+                if (existingUserWithEmail && existingUserWithEmail?.id !== id) {
                     throw new Error('Otro usuario ya posee esa dirección de email');
                 }
             }
@@ -176,6 +176,9 @@ class UsuariosService {
     }
 
     async delete(id){
+        await prisma.licencia.deleteMany({
+            where: { solicitanteId: id }
+        })
         return await prisma.usuario.delete({
             where: { id }
         })

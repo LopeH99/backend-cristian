@@ -48,8 +48,9 @@ export class FileService {
         }
 
         // Store the uploaded file paths
-        this.uploadedFilePaths = req.files.map(file => file.path);
-
+        if(req.files?.length > 0){
+          this.uploadedFilePaths = req.files.map(file => file.path);
+        }
         next();
       });
     };

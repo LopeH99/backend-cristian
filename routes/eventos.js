@@ -93,9 +93,12 @@ router.post(
     if (archivo) {
       req.body.archivo = archivo.shift();
     }
-    
-    req.body.novedad = req.body?.novedad?.toLowerCase() === "true";
-    req.body.incidencia = req.body?.incidencia?.toLowerCase() === "true";
+    if(req.body?.novedad){
+      req.body.novedad = req.body?.novedad?.toString()?.toLowerCase() === "true";
+    }
+    if(req.body?.incidencia){
+      req.body.incidencia = req.body?.incidencia?.toString()?.toLowerCase() === "true";
+    }
 
     try {
       const resultado = await eventoService.create(req.body);

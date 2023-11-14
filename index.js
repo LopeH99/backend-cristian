@@ -48,6 +48,11 @@ app.use('/uploads', express.static(uploadsDirectory));
 app.get('/', (req,res) =>  {
     return res.json({message: "API Tesis"})});
 
+app.get("/image/:id", async (req, res) => {
+  const id = req.params?.id;
+  const paths = path.join(__dirname, 'uploads', id)
+  res.sendFile(paths)
+});
 app.listen(PORT, () => {
   console.log(`Server corriendo en puerto ${PORT}`);
 });
